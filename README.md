@@ -1,5 +1,3 @@
-Here is the README file using GitHub's basic writing and formatting syntax:
-
 ---
 
 # Movie Website
