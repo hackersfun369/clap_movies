@@ -63,8 +63,12 @@ function searchmovies(movies, genreMap) {
         card.className = "movie-card";
         const movieGenres = movie.genre_ids.map(id => genreMap[id]).join(', ');
 
+        const posterPath = movie.poster_path ? 
+            `https://image.tmdb.org/t/p/original${movie.poster_path}` : 
+            'image1.jpg';
+
         card.innerHTML = `
-            <img src='https://image.tmdb.org/t/p/original${movie.poster_path}' alt='${movie.title} poster'>
+            <img src='${posterPath}' alt='${movie.title} poster'>
             <h3>${movie.title}</h3>
             <p class="genre">Genres: ${movieGenres}</p>
             <p class="movieid">ID: ${movie.id}</p>
