@@ -53,7 +53,9 @@ function searchmovies(movies, genreMap) {
     movies.forEach(movie => {
         const card = document.createElement('div');
         card.className = "movie-card";
-        const movieGenres = movie.genre_ids.map(id => genreMap[id]).join(', ');
+        const movieGenres = movie.genre_ids.map(id => genreMap[id]).slice(0, 2).join(', ');
+        genretest1.style.display='block';
+        genretest1.innerHTML = `The results for genre "${movieGenres}"`;
         const posterPath = movie.poster_path ? 
             `https://image.tmdb.org/t/p/original${movie.poster_path}` : 
             'image1.jpg';
