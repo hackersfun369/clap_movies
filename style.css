@@ -88,6 +88,12 @@ body{
     font-weight: bold;
     text-decoration: none;
 }
+.genretest{
+    position: absolute;
+    top: 450px;
+    color: white;
+    margin: 20px;
+}
 .topdetails a:hover{
     background-color: var(--color-primary);
 }
@@ -353,6 +359,9 @@ iframe{
     .genres-test{
         position: absolute;
         top: 100px;
+    }
+    .genretest{
+        top: 650px;
     }
     .overview{
         width: 100%;
