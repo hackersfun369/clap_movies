@@ -175,8 +175,12 @@ function displaytrending(movies, genreMap) {
         // Map genre IDs to names
         const movieGenres = movie.genre_ids.map(id => genreMap[id]).join(', ');
 
+        const posterPath = movie.poster_path ? 
+            `https://image.tmdb.org/t/p/original${movie.poster_path}` : 
+            'image1.jpg';
+
         card.innerHTML = `
-            <img src='https://image.tmdb.org/t/p/original${movie.poster_path}' alt='${movie.title} poster'>
+            <img src='${posterPath}' alt='${movie.title} poster'>
             <h3>${movie.title}</h3>
             <p class="genre">Genres: ${movieGenres}</p>
             <p class="movieid">ID: ${movie.id}</p>
@@ -201,8 +205,12 @@ function actionmovies(movies, genreMap) {
         // Map genre IDs to names
         const movieGenres = movie.genre_ids.map(id => genreMap[id]).join(', ');
 
+        const posterPath = movie.poster_path ? 
+            `https://image.tmdb.org/t/p/original${movie.poster_path}` : 
+            'image1.jpg';
+
         card.innerHTML = `
-            <img src='https://image.tmdb.org/t/p/original${movie.poster_path}' alt='${movie.title} poster'>
+            <img src='${posterPath}' alt='${movie.title} poster'>
             <h3>${movie.title}</h3>
             <p class="genre">Genres: ${movieGenres}</p>
             <p class="movieid">ID: ${movie.id}</p>
@@ -227,8 +235,12 @@ function horrormovies(movies, genreMap) {
         // Map genre IDs to names
         const movieGenres = movie.genre_ids.map(id => genreMap[id]).join(', ');
 
+        const posterPath = movie.poster_path ? 
+            `https://image.tmdb.org/t/p/original${movie.poster_path}` : 
+            'image1.jpg';
+
         card.innerHTML = `
-            <img src='https://image.tmdb.org/t/p/original${movie.poster_path}' alt='${movie.title} poster'>
+            <img src='${posterPath}' alt='${movie.title} poster'>
             <h3>${movie.title}</h3>
             <p class="genre">Genres: ${movieGenres}</p>
             <p class="movieid">ID: ${movie.id}</p>
@@ -254,8 +266,12 @@ function scifimovies(movies, genreMap) {
         // Map genre IDs to names
         const movieGenres = movie.genre_ids.map(id => genreMap[id]).join(', ');
 
+        const posterPath = movie.poster_path ? 
+            `https://image.tmdb.org/t/p/original${movie.poster_path}` : 
+            'image1.jpg';
+
         card.innerHTML = `
-            <img src='https://image.tmdb.org/t/p/original${movie.poster_path}' alt='${movie.title} poster'>
+            <img src='${posterPath}' alt='${movie.title} poster'>
             <h3>${movie.title}</h3>
             <p class="genre">Genres: ${movieGenres}</p>
             <p class="movieid">ID: ${movie.id}</p>
@@ -293,11 +309,9 @@ function topplay2(movie, genreMap){
                 <p>Rating: ${movie.vote_average}</p>
                 <p>Overview:<br>${movie.overview}</p>
                 <p class="movieid">ID: ${movie.id}</p>
+                <a href="/details.html?movieId=${movie.id}">Play Now</a>
                 </div>
     `;
-    topplay1.addEventListener('click', function() {
-            window.location.href = `details.html?movieId=${movie.id}`;
-        });
     // Set the background image correctly
     topplay.style.backgroundImage = `url('https://image.tmdb.org/t/p/original${movie.backdrop_path}')`;
     topplay.style.backgroundSize = 'cover';
