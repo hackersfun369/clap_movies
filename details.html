@@ -33,7 +33,7 @@
             return urlParams.get('movieId');
         }
         async function fetchMovieDetails(movieId) {
-            const url = `${baseUrl}/movie/${movieId}?api_key=${apiKey}`;
+            const url = `${baseUrl}/movie/${movieId}?api_key=${apiKey}&&append_to_response=credits`;
             try {
                 const response = await fetch(url);
                 if (!response.ok) {
@@ -47,21 +47,41 @@
         }
         function displayMovieDetails(movie) {
             const movieDetails = document.getElementById('movie-details');
-            movieDetails.innerHTML = `
-                <div class="movie">
-                    <div class="movieimage">
+            if (movie && movie.credits && movie.credits.cast && Array.isArray(movie.credits.cast)) {
+        movieDetails.innerHTML = `
+            <div class="movie">
+                <div class="movieimage">
                     <!--<img src="https://image.tmdb.org/t/p/original${movie.poster_path}" alt="${movie.title}">-->
-                    </div>
+                </div>
                 <div class="moviedet">
-                <h1 class="title">${movie.title}</h1>
-                <p><strong>Release Date:</strong> ${movie.release_date}</p>
-                <p><strong>Rating:</strong> ${movie.vote_average}</p>
-                <p><strong>Genres:</strong> ${movie.genres.map(genre => genre.name).join(', ')}</p></div>
-                    </div>
+                    <h1 style="color: #6f6af8;" class="title">${movie.title}</h1>
+                    <p><strong>Release Date:</strong> ${movie.release_date}</p>
+                    <p><strong>Rating:</strong> ${movie.vote_average}</p>
+                    <p><strong>Genres:</strong> ${movie.genres.map(genre => genre.name).join(', ')}</p>
+                </div>
+            </div>
 
-                <iframe src="" width="80%" height="500px" frameborder="0" scrolling="no" allowfullscreen></iframe>
-                <p class="overview"><strong>Overview:</strong> ${movie.overview}</p>
-            `;
+            <iframe src="https://www.2embed.cc/embed/${movieId}" width="80%" height="500px" frameborder="0" scrolling="no" allowfullscreen></iframe>
+            <p class="overview"><strong>Overview:</strong> ${movie.overview}</p>
+
+            <div class="cast">
+                <h2 style="color: #6f6af8;">Cast</h2>
+                <div class="cast-list">
+    ${movie.credits.cast
+        .filter(actor => actor.profile_path)
+        //.slice(0, 7)
+        .map(actor => `
+            <div class="actor">
+                <img src="https://image.tmdb.org/t/p/original${actor.profile_path}" alt="${actor.name}" style="width: 150px; height: auto;">
+                <p class="character">${actor.name}</p>
+            </div>
+        `).join('')}
+</div>
+            </div>
+        `;
+    } else {
+        console.error("Movie or cast details are missing.");
+    }
             movieDetails.style.backgroundImage = `url('https://image.tmdb.org/t/p/original${movie.backdrop_path}')`;
         movieDetails.style.backgroundSize = 'cover';
         movieDetails.style.backgroundRepeat = 'no-repeat';
