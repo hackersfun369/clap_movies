@@ -403,4 +403,11 @@ iframe{
         margin-left: 2px;
         margin-right: 0;
     }
+    iframe{
+        width: 96%;
+        margin: 0;
+        margin-left: 2%;
+        height: 280px;
+
+    }
 }
