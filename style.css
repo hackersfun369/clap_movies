@@ -313,6 +313,14 @@ iframe{
         overflow: hidden;
         text-overflow: ellipsis;
     }
+    .search-results1{
+        top: 200px;
+        width: 96%;
+        margin-left: 2%;
+        margin-right: 2%;
+        display: flex;
+        justify-content: center;
+    }
     .topdetails p{
         width: 100%;
         font-size: 14px;
