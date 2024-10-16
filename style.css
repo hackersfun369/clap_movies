@@ -8,7 +8,6 @@ body{
     font-family: "Poppins", sans-serif;
     background-color: black;
     --webkit--appearance: none;
-    scrollbar-width: none;
 }
 :root{
     --color-primary : #6f6af8;
@@ -69,12 +68,34 @@ body{
     overflow: auto;
     scrollbar-width: none;
 }
-.movie-card{
+.movie-card,.cast-list .actor{
     margin: 20px;
     cursor: pointer;
     border-radius: 5px;
     transition: transform 0.5s ease-in-out;
 }
+.cast-list{
+    display: flex;
+    overflow: auto;
+}
+.cast{
+    background-color: #0c0c22;
+}
+.cast .cast-list .actor{
+    width: 180px;
+    margin-left: 20px;
+}
+.cast .cast-list .actor img{
+    border-radius: 10px;
+    width: 100%;
+}
+.cast .cast-list .actor p{
+    width: 100%;
+    text-wrap: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .topdetails a{
     width: fit-content;
     height: 26px;
@@ -281,7 +302,8 @@ iframe{
 }
 #movie-details p{
     color: white;
-    width: 87%;
+    width: 100%;
+    margin: 0;
 }
 #movie-details h2{
     color: white;
@@ -313,14 +335,6 @@ iframe{
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-    }
-    .search-results1{
-        top: 200px;
-        width: 96%;
-        margin-left: 2%;
-        margin-right: 2%;
-        display: flex;
-        justify-content: center;
     }
     .topdetails p{
         width: 100%;
@@ -362,6 +376,14 @@ iframe{
     }
     .search-results{
         top: 750px;
+        display: flex;
+        justify-content: center;
+    }
+    .search-results1{
+        top: 200px;
+        width: 96%;
+        margin-left: 2%;
+        margin-right: 2%;
         display: flex;
         justify-content: center;
     }
