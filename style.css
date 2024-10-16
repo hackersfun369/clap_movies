@@ -394,6 +394,10 @@ iframe{
     .genretest{
         top: 650px;
     }
+    #movie-details p{
+        color: white;
+        width: 90%;
+    }
     .overview{
         width: 100%;
         margin-left: 2px;
