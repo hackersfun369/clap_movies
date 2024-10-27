@@ -284,12 +284,10 @@ cursor: pointer;
     color: white;
     font-size: 40px;
 }
-.overview{
-    width: 80%;
-    margin-top: 40px;
-    padding: 20px;
+.section{
     background-color: #0c0c22;
-    border-radius: 5px;
+    color: white;
+    padding: 20px 0px 20px 20px;
 }
 iframe{
     width: 80%;
